@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { DiamondAnimation } from "./components/DiamondAnimation/DiamondAnimation";
+import "./app.css";
 
 function App() {
+  const [isStopped, setIsStopped] = useState(true);
+  const [isPaused, setIsPaused] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <span className="animation">
+        <DiamondAnimation isPaused={isPaused} isStopped={isStopped} />
+      </span>
+      <span className="buttons">
+        <button onClick={() => setIsStopped(true)}>Stop</button>
+        <button onClick={() => setIsStopped(false)}>Play</button>
+        <button onClick={() => setIsPaused(!isPaused)}>Pause</button>
+      </span>
     </div>
   );
 }
