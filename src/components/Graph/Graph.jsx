@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Lottie from "react-lottie";
-import * as animationData from "./lf20_skp5fcoi.json";
+import * as animationData from "./lf20_e53dzii4.json";
 
-import styles from "./DiamondAnimation.module.css";
+import styles from "./Graph.module.css";
 
-export function DiamondAnimation() {
+export function Graph() {
   const [isStopped, setIsStopped] = useState(true);
   const [isPaused, setIsPaused] = useState(true);
 

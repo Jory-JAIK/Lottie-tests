@@ -1,22 +1,36 @@
 import React, { useState } from "react";
-import { DiamondAnimation } from "./components/DiamondAnimation/DiamondAnimation";
-import "./app.css";
+import Graph from "./components/Graph";
+import DiamondAnimation from "./components/DiamondAnimation";
+import SettingsBar from "./components/SettingsBar";
+import Check from "./components/Check";
+
+import "./App.css";
 
 function App() {
-  const [isStopped, setIsStopped] = useState(true);
-  const [isPaused, setIsPaused] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   return (
-    <div className="container">
-      <span className="animation">
-        <DiamondAnimation isPaused={isPaused} isStopped={isStopped} />
-      </span>
-      <span className="buttons">
-        <button onClick={() => setIsStopped(true)}>Stop</button>
-        <button onClick={() => setIsStopped(false)}>Play</button>
-        <button onClick={() => setIsPaused(!isPaused)}>Pause</button>
-      </span>
-    </div>
+    <>
+      <div className="container">
+        <span>
+          <Graph />
+        </span>
+        <span>
+          <SettingsBar />
+        </span>
+        <span>
+          <DiamondAnimation />
+        </span>
+      </div>
+      <div className="checkContainer">
+        <button onClick={() => setChecked(true)}>Click me to Check!</button>
+      </div>
+      {checked && (
+        <div className="check">
+          <Check />
+        </div>
+      )}
+    </>
   );
 }
 
